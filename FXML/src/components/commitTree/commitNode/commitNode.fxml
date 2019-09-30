@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+
+<GridPane fx:id="commitRow" hgap="5.0" maxHeight="60.0" maxWidth="1.7976931348623157E308" minHeight="42.0" minWidth="-Infinity" onMouseClicked="#commitRow_OnCLick" prefHeight="42.0" prefWidth="190.0" styleClass="single-commit-row-container" stylesheets="@commitNode.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.commitTree.commitNode.CommitNodeController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+      <ColumnConstraints hgrow="NEVER" />
+      <ColumnConstraints hgrow="NEVER" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="NEVER" />
+    <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+    <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="NEVER" />
+  </rowConstraints>
+   <children>
+
+       <Circle fx:id="CommitCircle" fill="#087fee" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="5.0" right="10.0" />
+         </GridPane.margin>
+      </Circle>
+      <Label fx:id="branchesLabel" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="89.0" styleClass="timestamp-label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" />
+   </children>
+</GridPane>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane prefHeight="738.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.mainWindow.MainWindowController">
+   <left>
+      <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1D4D6F;" stylesheets="@../../resources/titledpane.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="repo_name" fx:id="repoName" alignment="CENTER" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" styleClass="side_menu_title" text="WORKSPACE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Button fx:id="historyBtn" mnemonicParsing="false" onAction="#tabSelectionEventHandler" style="-fx-background-color: transparent;" styleClass="side_menu_item" text="History" textAlignment="CENTER" textFill="WHITE">
+               <effect>
+                  <Blend />
+               </effect>
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="statusBtn" mnemonicParsing="false" onAction="#tabSelectionEventHandler" style="-fx-background-color: transparent;" styleClass="side_menu_item" text="WC status" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect>
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Button>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" styleClass="side_menu_title" text="BRANCHES">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <TitledPane fx:id="branchesMenu" alignment="TOP_RIGHT" cacheShape="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="239.0" prefWidth="201.0" style="-fx-font-weight: 0px;" textAlignment="CENTER" textFill="#1b0a0a">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <content>
+                  <VBox fx:id="branchesMenuPaneContainer" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="headBranch" alignment="TOP_RIGHT" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <VBox fx:id="branchesMenuPane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="166.0" />
+                     </children>
+                  </VBox>
+               </content>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="-30.0" />
+               </VBox.margin>
+            </TitledPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <StackPane maxWidth="1000.0" prefHeight="150.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="historyTab" pickOnBounds="false" style="-fx-background-color: white; -fx-border-color: white;">
+               <children>
+                  <HBox fx:id="h" fillHeight="false">
+                     <children>
+                        <Pane minHeight="650.0" minWidth="475.0">
+                           <children>
+                              <ScrollPane fx:id="commitTreeScrollPane" maxHeight="-Infinity" prefHeight="650.0" prefWidth="475.0" style="-fx-background-color: WHITE; -fx-border-color: WHITE;" />
+                           </children>
+                        </Pane>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TabPane style="ba: WHITE;">
+                                 <tabs>
+                                    <Tab text="Commit Details">
+                                       <content>
+                                          <GridPane maxHeight="581.0" prefHeight="581.0" prefWidth="459.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="0.0" percentHeight="5.0" prefHeight="7.999996185302734" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <ScrollPane GridPane.rowIndex="1">
+                                                   <content>
+                                                      <Label fx:id="commitDetails" alignment="TOP_LEFT" />
+                                                   </content>
+                                                </ScrollPane>
+                                                <ScrollPane prefHeight="94.0" prefWidth="459.0" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                                   <content>
+                                                      <Label fx:id="deletedItemsHistory" alignment="TOP_LEFT" />
+                                                   </content>
+                                                </ScrollPane>
+                                                <ScrollPane GridPane.rowIndex="5" GridPane.valignment="TOP">
+                                                   <content>
+                                                      <Label fx:id="changedItemsHistory" alignment="TOP_LEFT" />
+                                                   </content>
+                                                </ScrollPane>
+                                                <Label text="Deleted items" GridPane.rowIndex="2" />
+                                                <ScrollPane prefHeight="90.0" prefWidth="465.0" GridPane.rowIndex="7" GridPane.valignment="TOP">
+                                                   <content>
+                                                      <Label fx:id="addedItemsHistory" alignment="TOP_LEFT" />
+                                                   </content>
+                                                </ScrollPane>
+                                                <Label text="Changed items" GridPane.rowIndex="4" />
+                                                <Label text="Added items" GridPane.rowIndex="6" />
+                                                <Label text="Commit Details" />
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Commit Contents">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox layoutX="150.0" layoutY="150.0" prefHeight="582.0" prefWidth="459.3333333333333" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <ScrollPane prefHeight="406.0" prefWidth="459.0">
+                                                         <content>
+                                                            <Pane fx:id="commitContentContainer">
+                                                               <children>
+                                                                  <TreeView fx:id="commitFolderTree" prefHeight="300.0" prefWidth="475.0" />
+                                                               </children>
+                                                            </Pane>
+                                                         </content>
+                                                      </ScrollPane>
+                                                      <ScrollPane prefHeight="378.0" prefWidth="459.0">
+                                                         <content>
+                                                            <TextFlow prefHeight="300.0" prefWidth="450.0">
+                                                               <children>
+                                                                  <Label fx:id="selectedCommitFileContent" />
+                                                               </children>
+                                                            </TextFlow>
+                                                         </content>
+                                                      </ScrollPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane fx:id="statusTab" pickOnBounds="false" style="-fx-background-color: white; -fx-border-color: white;">
+               <children>
+                  <HBox layoutX="1.0" layoutY="1.0">
+                     <children>
+                        <GridPane prefWidth="471.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="540.0" minHeight="10.0" prefHeight="540.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Pane fx:id="TreeViewContainer" GridPane.rowIndex="1">
+                                 <children>
+                                    <TreeView fx:id="FolderTreeView" prefHeight="546.0" prefWidth="475.0" style="-fx-border-color: white; -fx-background-insets: 0px;" styleClass="treeView" stylesheets="@../../resources/Treeview.css" />
+                                 </children>
+                              </Pane>
+                              <Button fx:id="openChangesBtn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#calculateOpenChanges" text="Refresh" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane maxHeight="581.0" prefHeight="581.0" prefWidth="459.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ScrollPane prefWidth="475.0" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                 <content>
+                                    <Label fx:id="deletedItems" alignment="TOP_LEFT" />
+                                 </content>
+                              </ScrollPane>
+                              <ScrollPane GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                 <content>
+                                    <Label fx:id="changedItems" alignment="TOP_LEFT" />
+                                 </content>
+                              </ScrollPane>
+                              <ScrollPane GridPane.rowIndex="5" GridPane.valignment="TOP">
+                                 <content>
+                                    <Label fx:id="addedItems" alignment="TOP_LEFT" />
+                                 </content>
+                              </ScrollPane>
+                              <ScrollPane GridPane.rowIndex="7" GridPane.valignment="TOP">
+                                 <content>
+                                    <Label fx:id="fileContentDisplay" />
+                                 </content>
+                              </ScrollPane>
+                              <Label text="Deleted items" />
+                              <Label text="Changed items" GridPane.rowIndex="2" />
+                              <Label text="Added items" GridPane.rowIndex="4" />
+                              <Label text="Selected file contents" GridPane.rowIndex="6" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </center>
+   <top>
+      <GridPane maxWidth="1200.0" prefHeight="75.0" stylesheets="@../../resources/header.css" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="60.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" percentWidth="3.0" prefWidth="20.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="commitBtn" mnemonicParsing="false" onAction="#commitAction" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Text fill="#8d8989" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="commit" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="43.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="push" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="43.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pull" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="183.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="branch" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="183.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="clone" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Button fx:id="pushBtn" layoutX="35.0" layoutY="32.0" mnemonicParsing="false" onAction="#pushAction" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="branchBtn" layoutX="105.0" layoutY="32.0" mnemonicParsing="false" onAction="#createNewBranchAction" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="cloneBtn" layoutX="105.0" layoutY="32.0" mnemonicParsing="false" onAction="#cloneAction" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="pullBtn" layoutX="105.0" layoutY="32.0" mnemonicParsing="false" onAction="#pullAction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="userBtn" layoutX="327.0" layoutY="32.0" mnemonicParsing="false" onAction="#setUserName" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="320.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="320.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="repository" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <MenuButton fx:id="repositoryMenu" mnemonicParsing="false" textOverrun="CLIP" GridPane.columnIndex="9" GridPane.rowIndex="1">
+              <items>
+                <MenuItem fx:id="addRepo" mnemonicParsing="false" onAction="#loadRepoAction" text="switch repository" />
+                <MenuItem fx:id="loadRepo" mnemonicParsing="false" onAction="#loadXMLAction" text="load repository XML" />
+                  <MenuItem fx:id="initRepoAction" mnemonicParsing="false" onAction="#initRepoAction" text="new empty repository" />
+              </items>
+            </MenuButton>
+            <Button fx:id="fetchBtn" layoutX="227.0" layoutY="32.0" mnemonicParsing="false" onAction="#fetchAction" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="253.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fetch" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Label fx:id="userNameLabel" text="Label" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Button fx:id="rebaseBranchbtn" layoutX="347.0" layoutY="32.0" mnemonicParsing="false" onAction="#resetBranchButtonAction" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Text fill="#8d8989" fontSmoothingType="LCD" layoutX="344.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="rebase branch" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+   </top>
+</BorderPane>

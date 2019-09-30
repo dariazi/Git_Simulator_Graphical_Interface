@@ -1,0 +1,23 @@
+.button{
+    -fx-background-color:transparent;
+	-fx-border: transparent;
+		-fx-margin-left:10px;
+
+}
+.button:hover{
+	-fx-cursor: hand;
+	-fx-opacity:0.5;
+	
+		
+
+}
+
+
+
+.menu-button{
+ -fx-background-color:transparent;
+	-fx-border: transparent;
+		-fx-margin-left:10px;
+		-fx-text-shadow: teal;
+
+}

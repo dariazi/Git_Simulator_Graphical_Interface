@@ -1,0 +1,1 @@
+cmd /k java -jar "%cd%\MAGIT\out\artifacts\FXML_jar"\FXML.jar

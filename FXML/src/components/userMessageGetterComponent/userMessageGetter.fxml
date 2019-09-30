@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.userMessageGetterComponent.UserInputGetter">
+   <children>
+      <Label fx:id="titleLabel" prefHeight="33.0" prefWidth="245.0" wrapText="true" />
+      <TextArea fx:id="messageGetter" maxHeight="-Infinity" maxWidth="244.0" prefHeight="25.0" prefWidth="244.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </TextArea>
+      <Button fx:id="confirmBtn" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#confirmAction" prefHeight="25.0" prefWidth="82.0" text="Confirm" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

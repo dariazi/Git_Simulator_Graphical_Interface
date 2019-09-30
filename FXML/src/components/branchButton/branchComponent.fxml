@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+
+<Label fx:id="singleBranch" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.branchButton.SingleBranchController">
+   <contextMenu>
+      <ContextMenu fx:id="menu">
+        <items>
+          <MenuItem fx:id="deleteBranch" mnemonicParsing="false" text="delete branch" />
+            <MenuItem fx:id="checkoutBranch" mnemonicParsing="false" text="checkout" />
+            <MenuItem fx:id="mergeBranch" mnemonicParsing="false" text="merge" />
+            <MenuItem fx:id="rebaseBranch" mnemonicParsing="false" text="rebase" />
+        </items>
+      </ContextMenu>
+   </contextMenu>
+</Label>

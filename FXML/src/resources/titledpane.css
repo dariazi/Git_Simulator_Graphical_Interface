@@ -1,0 +1,28 @@
+.titled-pane > .title
+{
+    -fx-background-color: transparent;
+    -fx-border-color:transparent;
+}
+
+
+.titled-pane > .title > .text
+{
+    -fx-fill: WHITE;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+
+}
+.titled-pane > *.content {
+
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+    -fx-fill: WHITE;	
+	-fx-padding: 0 30 0;
+ }
+
+.button:hover{
+-fx-cursor:hand;
+-fx-text-shadow: teal;
+
+}
